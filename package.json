@@ -1,0 +1,26 @@
+{
+  "name": "taskqlite",
+  "version": "0.0.1",
+  "description": "A monadic interface for sqlite in Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://YannickDot@github.com/YannickDot/taskqlite.git"
+  },
+  "keywords": [
+    "sqlite",
+    "task",
+    "futures",
+    "monadic",
+    "monad"
+  ],
+  "author": "Yannick Spark <sparky.creativespace@gmail.com> (https://sparkyspace.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YannickDot/taskqlite/issues"
+  },
+  "homepage": "https://github.com/YannickDot/taskqlite#readme"
+}

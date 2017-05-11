@@ -1,2 +1,3 @@
-# taskqlite
-A monad interface for sqlite in Node
+# Taskqlite
+
+A monadic interface for sqlite in Node.
