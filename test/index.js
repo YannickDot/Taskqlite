@@ -1,10 +1,11 @@
 const sqlite3 = require('sqlite3').verbose()
 const sqliteDB = new sqlite3.Database(':memory:')
 const taskqlite = require('../src/index.js')
+
 const Taskorama = require('taskorama').default
 const Fluture = require('fluture')
 
-let Task = Fluture
+let Task = Taskorama
 
 // range :: Int -> Int -> Array Int
 const range = (start, end) =>
@@ -21,7 +22,6 @@ Task.of(`Let's use Tasks with sqlite`)
         yield stmt.run('Ipsum ' + num)
       }
       yield stmt.finalize()
-      return
     })
   )
   .chain(_ => database.all('SELECT rowid AS id, info FROM lorem'))
