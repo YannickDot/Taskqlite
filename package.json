@@ -1,6 +1,6 @@
 {
   "name": "taskqlite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A monadic interface for sqlite in Node.",
   "main": "index.js",
   "scripts": {
