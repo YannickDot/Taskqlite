@@ -4,7 +4,9 @@
   "description": "A monadic interface for sqlite in Node.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config rollup.config.prod.js",
+    "dev": "rollup --config rollup.config.dev.js -w"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,11 @@
   "bugs": {
     "url": "https://github.com/YannickDot/taskqlite/issues"
   },
-  "homepage": "https://github.com/YannickDot/taskqlite#readme"
+  "homepage": "https://github.com/YannickDot/taskqlite#readme",
+  "devDependencies": {
+    "jest": "^20.0.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^3.2.2"
+  }
 }

@@ -90,4 +90,4 @@ function createBindings(TaskImpl, db) {
   return new DatabaseBindings(db, TaskImpl)
 }
 
-module.exports = createBindings
+export default createBindings
