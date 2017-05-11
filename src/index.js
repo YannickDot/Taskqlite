@@ -8,7 +8,7 @@ class StatementBindings {
 
   run(sql) {
     var self = this
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._stmt.run(sql, function(err) {
         return err ? rej(err) : res(self)
       })
@@ -16,7 +16,7 @@ class StatementBindings {
   }
 
   finalize() {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._stmt.finalize(err => (err ? rej(err) : res()))
     })
   }
@@ -34,20 +34,20 @@ class DatabaseBindings {
 
   // https://github.com/mapbox/node-sqlite3/wiki/API#databaseclosecallback
   close() {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.close(err => (err ? rej(err) : res()))
     })
   }
 
   all(sql, params) {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.all(sql, params, (err, rows) => (err ? rej(err) : res(rows)))
     })
   }
 
   prepare(sql, params) {
     var self = this
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.prepare(sql, params, function(err) {
         return err ? rej(err) : res(self.wrapStmt(this))
       })
@@ -55,7 +55,7 @@ class DatabaseBindings {
   }
 
   run(sql, params = []) {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.run(sql, params, function(err) {
         return err ? rej(err) : res(this)
       })
@@ -63,13 +63,13 @@ class DatabaseBindings {
   }
 
   get(sql, params = []) {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.get(sql, params, (err, row) => (err ? rej(err) : res(row)))
     })
   }
 
   each(sql, params, callback = noop) {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.each(
         sql,
         params,
@@ -80,13 +80,13 @@ class DatabaseBindings {
   }
 
   exec(sql) {
-    return this.TaskImpl((res, rej) => {
+    return this.TaskImpl((rej, res) => {
       this._db.exec(sql, err => (err ? rej(err) : res()))
     })
   }
 }
 
-export function createBindings(TaskImpl, db) {
+function createBindings(TaskImpl, db) {
   return new DatabaseBindings(db, TaskImpl)
 }
 

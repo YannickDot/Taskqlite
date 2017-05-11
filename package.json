@@ -17,6 +17,11 @@
     "monadic",
     "monad"
   ],
+  "dependencies": {
+    "fluture": "^5.0.0",
+    "sqlite3": "^3.1.8",
+    "taskorama": "^2.0.0"
+  },
   "author": "Yannick Spark <sparky.creativespace@gmail.com> (https://sparkyspace.com/)",
   "license": "MIT",
   "bugs": {
