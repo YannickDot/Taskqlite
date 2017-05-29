@@ -2,6 +2,19 @@
 
 Taskqlite is a wrapper for [node-sqlite3](https://github.com/mapbox/node-sqlite3) exposing a monadic interface. 🎁
 
+
+## Install
+
+Install taskqlite and sqlite
+```
+yarn add taskqlite sqlite3
+```
+And install a task data type like [Taskorama](https://github.com/YannickDot/Taskorama) or [Fluture](https://github.com/fluture-js/Fluture)
+
+```
+yarn add taskorama
+```
+
 ## Demo 
 ```js
 
